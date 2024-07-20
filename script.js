@@ -48,4 +48,15 @@ function playRound(humanChoice, computerChoice) {
   }
 }
 
-playRound()
+function playGame() {
+  while(humanScore < 3 && computerScore < 3) {
+    playRound()
+  }
+  if (humanScore > computerScore) {
+    console.log(`YOU WIN ${humanScore}-${computerScore}`)
+  } else {
+    console.log(`YOU LOSE ${computerScore}-${humanScore}`)
+  }
+}
+
+playGame()
