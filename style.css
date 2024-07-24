@@ -2,6 +2,12 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+body {
+  background-image: url(./images/paper.jpg);
+  background-size: cover;
 }
 
 .mainContainer {
@@ -10,6 +16,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: antiquewhite;
+  border-radius: 20%;
 }
 
 .buttonContainer {
@@ -20,8 +28,26 @@
 
 .buttonContainer button {
   margin: 32px;
-  width: 200px;
-  height: 150px;
+  width: 175px;
+  height: 125px;
+  font-size: 32px;
+  font-weight: 700;
+  color: transparent;
+}
+
+.rockButton {
+  background-image: url(./images/rock.jpg);
+  background-size: contain;
+}
+
+.paperButton {
+  background-image: url(./images/paper2.jpg);
+  background-size: contain;
+} 
+
+.scissorsButton {
+  background-image: url(./images/scissors.jpg);
+  background-size: contain;
 }
 
 .outputChoice {
@@ -37,7 +63,7 @@
   justify-content: center;
   align-items: center;
   font-weight: 900;
-  font-size: 50px;
+  font-size: 36px;
 }
 
 .outputChoice .vs {
@@ -69,6 +95,7 @@
   background-color: rgb(7, 170, 235);
   color:white;
   font-size: 64px;
+  border: 3px black solid;
 }
 
 .output {
