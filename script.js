@@ -94,9 +94,11 @@ function playRound(computerChoice) {
   }
   if (humanScore > 4) {
     finalScore.textContent = `YOU WIN!`
+    finalScore.classList.add("finalScoreWin")
     
   } else if (computerScore > 4) {
     finalScore.textContent = `YOU LOSE!`
+    finalScore.classList.add("finalScoreLose")
   }
   if (humanScore > 4 || computerScore > 4) {
     rockButton.removeEventListener("click", rock)
@@ -108,10 +110,14 @@ function playRound(computerChoice) {
 reset.addEventListener("click", () => {
   computerScore = 0
   humanScore = 0
-  output.textContent = ""
-  humanScoreDOM.textContent = ""
-  computerScoreDOM.textContent = ""
+  finalScore.classList.remove("finalScoreLose")
+  finalScore.classList.remove("finalScoreWin")
+  output.textContent = "rock paper scissors"
+  humanScoreDOM.textContent = "Your Score: 0"
+  computerScoreDOM.textContent = "Computer Score: 0"
   finalScore.textContent = ""
+  computerChoiceDOM.textContent = "?"
+  myChoice.textContent = "?"
   rockButton.removeEventListener("click", rock)
   paperButton.removeEventListener("click", paper)
   scissorsButton.removeEventListener("click", scissors)

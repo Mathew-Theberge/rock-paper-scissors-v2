@@ -8,15 +8,28 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <button class="rockButton">Rock</button>
-  <button class="paperButton">Paper</button>
-  <button class="scissorsButton">Scissors</button>
-  <div class="myChoice"></div>
-  <div class="computerChoice"></div>
-  <div class="humanScore"></div>
-  <div class="computerScore"></div>
-  <div class="output"></div>
-  <div class="finalScore"></div>
-  <button class="reset">Reset</button>
+  <div class="mainContainer">
+    <div class="buttonContainer">
+      <button class="rockButton">Rock</button>
+      <button class="paperButton">Paper</button>
+      <button class="scissorsButton">Scissors</button>
+    </div>
+    <div class="outputChoice">
+      <div class="choiceContainers">
+        <div class="myChoice">?</div>
+        <p class="humanScore">Your Score: 0</p>
+      </div>
+      <div class="vs">VS</div>
+      <div class="choiceContainers">
+        <div class="computerChoice">?</div>
+        <p class="computerScore">Computer Score: 0</p>
+      </div>
+    </div>
+    <div class="output">rock paper scissors</div>
+  </div>
+  <div class="resetContainer">
+    <button class="reset">Reset</button>
+  </div>
+    <div class="finalScore"></div>
 </body>
 </html>
