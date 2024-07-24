@@ -1,3 +1,22 @@
+const rockButton = document.querySelector(".rockButton")
+const paperButton = document.querySelector(".paperButton")
+const scissorsButton = document.querySelector(".scissorsButton")
+let humanChoice = ""
+rockButton.addEventListener("click", () => {
+  humanChoice = "rock"
+  playRound()
+})
+paperButton.addEventListener("click", () => {
+  humanChoice = "paper"
+  playRound()
+})
+scissorsButton.addEventListener("click", () => {
+  humanChoice = "scissors"
+  playRound()
+})
+
+
+
 function getComputerChoice() {
   computerChoice = Math.floor(Math.random() * 3)
   switch(computerChoice) {
@@ -11,20 +30,22 @@ function getComputerChoice() {
 }
 
 function getHumanChoice() {
-  humanChoice = prompt("Rock Paper Scissors?").toLowerCase()
-  if (humanChoice === "rock" || humanChoice === "scissors" || humanChoice === "paper") {
-    return humanChoice
-  } else {
-    playRound()
-  }
+  rockButton.addEventListener("click", () => {
+    return "rock"
+  })
+  //paperButton.addEventListener("click", )
+  //scissorsButton.addEventListener("click", )
 }
+
+
+
+
 
 let humanScore = 0
 let computerScore = 0
 
-function playRound(humanChoice, computerChoice) {
+function playRound(computerChoice) {
   computerChoice = getComputerChoice()
-  humanChoice = getHumanChoice()
   if (computerChoice === humanChoice) {
     console.log(`Draw computer selected ${computerChoice}`)
   } else if (humanChoice === "rock" && computerChoice === "scissors") {
@@ -48,15 +69,3 @@ function playRound(humanChoice, computerChoice) {
   }
 }
 
-function playGame() {
-  while(humanScore < 3 && computerScore < 3) {
-    playRound()
-  }
-  if (humanScore > computerScore) {
-    console.log(`YOU WIN ${humanScore}-${computerScore}`)
-  } else {
-    console.log(`YOU LOSE ${computerScore}-${humanScore}`)
-  }
-}
-
-playGame()
