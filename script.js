@@ -4,18 +4,20 @@ const scissorsButton = document.querySelector(".scissorsButton")
 const output = document.querySelector(".output")
 const humanScoreDOM = document.querySelector(".humanScore")
 const computerScoreDOM = document.querySelector(".computerScore")
+const finalScore = document.querySelector(".finalScore")
+const body = document.body
+const reset = document.querySelector(".reset")
 
 let humanChoice = ""
-
-rockButton.addEventListener("click", () => {
+rockButton.addEventListener("click", rock = function() {
   humanChoice = "rock"
   playRound()
 })
-paperButton.addEventListener("click", () => {
+paperButton.addEventListener("click", paper = function() {
   humanChoice = "paper"
   playRound()
 })
-scissorsButton.addEventListener("click", () => {
+scissorsButton.addEventListener("click", scissors = function() {
   humanChoice = "scissors"
   playRound()
 })
@@ -54,25 +56,60 @@ function playRound(computerChoice) {
     humanScoreDOM.textContent = `Your Score: ${humanScore}`
     computerScoreDOM.textContent = `Computer Score: ${computerScore}`
   } else if (humanChoice === "paper" && computerChoice === "scissors") {
-    computerChoice++
+    computerScore++
     output.textContent = "You lose! scissors beat paper"
     humanScoreDOM.textContent = `Your Score: ${humanScore}`
     computerScoreDOM.textContent = `Computer Score: ${computerScore}`
   } else if (humanChoice === "paper" && computerChoice === "rock") {
-    humanChoice++
+    humanScore++
     output.textContent = "You win! paper beats rock"
     humanScoreDOM.textContent = `Your Score: ${humanScore}`
     computerScoreDOM.textContent = `Computer Score: ${computerScore}`
   } else if (humanChoice === "scissors" && computerChoice === "rock") {
-    computerChoice++
+    computerScore++
     output.textContent = "You lose! rock beats scissors"
     humanScoreDOM.textContent = `Your Score: ${humanScore}`
     computerScoreDOM.textContent = `Computer Score: ${computerScore}`
   } else if (humanChoice === "scissors" && computerChoice === "paper") {
-    humanChoice++
+    humanScore++
     output.textContent = "You win! scissors beat paper"
     humanScoreDOM.textContent = `Your Score: ${humanScore}`
     computerScoreDOM.textContent = `Computer Score: ${computerScore}`
   }
+  if (humanScore > 4) {
+    finalScore.textContent = `YOU WIN!`
+    
+  } else if (computerScore > 4) {
+    finalScore.textContent = `YOU LOSE!`
+  }
+  if (humanScore > 4 || computerScore > 4) {
+    rockButton.removeEventListener("click", rock)
+    paperButton.removeEventListener("click", paper)
+    scissorsButton.removeEventListener("click", scissors)
+  }
 }
+
+reset.addEventListener("click", () => {
+  computerScore = 0
+  humanScore = 0
+  output.textContent = ""
+  humanScoreDOM.textContent = ""
+  computerScoreDOM.textContent = ""
+  finalScore.textContent = ""
+  rockButton.removeEventListener("click", rock)
+  paperButton.removeEventListener("click", paper)
+  scissorsButton.removeEventListener("click", scissors)
+  rockButton.addEventListener("click", rock = function() {
+    humanChoice = "rock"
+    playRound()
+  })
+  paperButton.addEventListener("click", paper = function() {
+    humanChoice = "paper"
+    playRound()
+  })
+  scissorsButton.addEventListener("click", scissors = function() {
+    humanChoice = "scissors"
+    playRound()
+  })
+})
 
